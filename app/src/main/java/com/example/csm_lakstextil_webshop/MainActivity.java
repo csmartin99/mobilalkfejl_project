@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         String userName = userNameET.getText().toString();
-        String pasword = passwordET.getText().toString();
+        String password = passwordET.getText().toString();
 
-        Log.i(LOG_TAG, "Bejelentkezett: " + userName + ", jelsző: " + pasword);
+        Log.i(LOG_TAG, "Bejelentkezett: " + userName + ", jelsző: " + password);
     }
 }
