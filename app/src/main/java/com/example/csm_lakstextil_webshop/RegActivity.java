@@ -2,15 +2,22 @@ package com.example.csm_lakstextil_webshop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 
-public class RegActivity extends AppCompatActivity {
+public class RegActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private static final String LOG_TAG = RegActivity.class.getName();
     private static final String PREF = RegActivity.class.getPackage().toString();
+    private static final int SECRET_KEY = 57;
 
     private SharedPreferences pref;
 
@@ -18,6 +25,12 @@ public class RegActivity extends AppCompatActivity {
     EditText passwordET;
     EditText passwordReET;
     EditText emailET;
+    EditText phoneET;
+    EditText postaladdressET;
+
+    Spinner phoneSpinner;
+
+    RadioGroup userRG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +49,26 @@ public class RegActivity extends AppCompatActivity {
         passwordET = findViewById(R.id.passwordEditText);
         passwordReET = findViewById(R.id.passwordConfirmEditText);
         emailET = findViewById(R.id.emailEditText);
+        phoneET = findViewById(R.id.phoneEditText);
+        postaladdressET = findViewById(R.id.addressEditText);
+
+        phoneSpinner = findViewById(R.id.phoneNumberSpinner);
+
+        userRG = findViewById(R.id.userRadioGroup);
+        userRG.check(R.id.userRadioButton);
 
         pref = getSharedPreferences(PREF, MODE_PRIVATE);
+
         String userName = pref.getString("username", "");
         String password = pref.getString("password", "");
 
         userNameET.setText(userName);
         passwordET.setText(password);
+
+        phoneSpinner.setOnItemSelectedListener(this);
+        ArrayAdapter<CharSequence> phoneAdapter = ArrayAdapter.createFromResource(this, R.array.phoneNumber, android.R.layout.simple_spinner_item);
+        phoneAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        phoneSpinner.setAdapter(phoneAdapter);
 
         Log.i(LOG_TAG, "onCreate");
     }
@@ -88,15 +114,39 @@ public class RegActivity extends AppCompatActivity {
         String password = passwordET.getText().toString();
         String passwordRe = passwordReET.getText().toString();
         String email = emailET.getText().toString();
+        String phone = phoneET.getText().toString();
+        String phoneType = phoneSpinner.getSelectedItem().toString();
+        String postalAddress = postaladdressET.getText().toString();
+        int userChecked = userRG.getCheckedRadioButtonId();
+        RadioButton userRadioBtn = userRG.findViewById(userChecked);
+        String userType = userRadioBtn.getText().toString();
 
         if (!password.equals(passwordRe)) {
             Log.e(LOG_TAG, "Passwords do NOT match!");
         } else {
             Log.i(LOG_TAG, "Registered as: " + userName + ", pw: " + password + ", email: " + email);
+            goToProducts();
         }
+    }
+
+    private void goToProducts() {
+        Intent prodI = new Intent(this, ProductsActivity.class);
+        prodI.putExtra("SECRET_KEY", SECRET_KEY);
+        startActivity(prodI);
     }
 
     public void back(View view) {
         finish();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String selected = adapterView.getItemAtPosition(i).toString();
+        Log.i(LOG_TAG, selected);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

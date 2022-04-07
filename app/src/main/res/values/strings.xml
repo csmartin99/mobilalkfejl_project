@@ -7,4 +7,14 @@
     <string name="email">Email</string>
     <string name="password_again">Password again</string>
     <string name="back">Back</string>
+    <string name="phone_number">Phone number</string>
+    <string name="postal_address">Postal address</string>
+    <string name="user">User</string>
+    <string name="admin">Admin</string>
+    <string name="description">Description</string>
+    <string-array name="phoneNumber">
+        <item>Mobile</item>
+        <item>Home</item>
+        <item>Work</item>
+    </string-array>
 </resources>
