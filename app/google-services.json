@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "138588909047",
+    "project_id": "lakastextilwebshop",
+    "storage_bucket": "lakastextilwebshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138588909047:android:0cb0550e3b2ceac2ca92f2",
+        "android_client_info": {
+          "package_name": "com.example.csm_lakstextil_webshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138588909047-mb6gbj22dvqth7336ufvh0e8kna469v7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.csm_lakstextil_webshop",
+            "certificate_hash": "319e1f6f4d03f5ef7d274149dbecf2328ae07a75"
+          }
+        },
+        {
+          "client_id": "138588909047-glr4rcc9ot2tjlndf9cfkf0k2b7gdr8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWeMzie5uY8HzbIU3pTqVj-v8XZopkkPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138588909047-glr4rcc9ot2tjlndf9cfkf0k2b7gdr8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

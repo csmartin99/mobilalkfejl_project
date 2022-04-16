@@ -1,5 +1,6 @@
 package com.example.csm_lakstextil_webshop;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,12 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private static final String LOG_TAG = RegActivity.class.getName();
@@ -20,6 +27,7 @@ public class RegActivity extends AppCompatActivity implements AdapterView.OnItem
     private static final int SECRET_KEY = 57;
 
     private SharedPreferences pref;
+    private FirebaseAuth mAuth;
 
     EditText userNameET;
     EditText passwordET;
@@ -58,6 +66,8 @@ public class RegActivity extends AppCompatActivity implements AdapterView.OnItem
         userRG.check(R.id.userRadioButton);
 
         pref = getSharedPreferences(PREF, MODE_PRIVATE);
+
+        mAuth = FirebaseAuth.getInstance();
 
         String userName = pref.getString("username", "");
         String password = pref.getString("password", "");
@@ -125,13 +135,25 @@ public class RegActivity extends AppCompatActivity implements AdapterView.OnItem
             Log.e(LOG_TAG, "Passwords do NOT match!");
         } else {
             Log.i(LOG_TAG, "Registered as: " + userName + ", pw: " + password + ", email: " + email);
-            goToProducts();
+            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()){
+                        Log.d(LOG_TAG, "Account created sucessfully.");
+                        goToProducts();
+                    }
+                    else{
+                        Log.d(LOG_TAG, "Account failed to create.");
+                        Toast.makeText(RegActivity.this, "Account failed to create: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
     }
 
     private void goToProducts() {
         Intent prodI = new Intent(this, ProductsActivity.class);
-        prodI.putExtra("SECRET_KEY", SECRET_KEY);
+        //prodI.putExtra("SECRET_KEY", SECRET_KEY);
         startActivity(prodI);
     }
 

@@ -11,10 +11,76 @@
     <string name="postal_address">Postal address</string>
     <string name="user">User</string>
     <string name="admin">Admin</string>
+    <string name="login_with_google_account">Login with google account</string>
+    <string name="login_as_guest">Login as Guest</string>
+    <string name="default_web_client_id_copy" translatable="false">138588909047-glr4rcc9ot2tjlndf9cfkf0k2b7gdr8j.apps.googleusercontent.com</string>
+    <string name="product_name">Product name</string>
     <string name="description">Description</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="default_price">000</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="change_view">Change view</string>
+    <string name="cart">Cart</string>
+    <string name="sign_out">Sign out</string>
     <string-array name="phoneNumber">
         <item>Mobile</item>
         <item>Home</item>
         <item>Work</item>
+    </string-array>
+
+    <string-array name="product_names">
+        <item>Towel</item>
+        <item>Curtain</item>
+        <item>Bedding cover</item>
+        <item>Imitation leather</item>
+        <item>Bedspread</item>
+        <item>Blackout curtains</item>
+        <item>Decorative pillow</item>
+        <item>Garden seat cushion</item>
+    </string-array>
+
+    <string-array name="product_descs">
+        <item>Fancy towels...</item>
+        <item>To decorate you house...</item>
+        <item>If you got bored of your chair s texture...</item>
+        <item>In case you didn t take care of your couch...</item>
+        <item>For lazy people...</item>
+        <item>Cheap solution to block the sunlight...</item>
+        <item>Well it speaks for itself...</item>
+        <item>For cold morning s on the terrace...</item>
+    </string-array>
+
+    <array name="product_ratings">
+        <item>3</item>
+        <item>4.5</item>
+        <item>3</item>
+        <item>1</item>
+        <item>5</item>
+        <item>4</item>
+        <item>2.5</item>
+        <item>3</item>
+    </array>
+
+    <array name="product_images">
+        <item>@drawable/towel</item>
+        <item>@drawable/curtain</item>
+        <item>@drawable/tiktok</item>
+        <item>@drawable/imitationleather</item>
+        <item>@drawable/bedspread</item>
+        <item>@drawable/blackoutcurtain</item>
+        <item>@drawable/donut</item>
+        <item>@drawable/gardenseatcushion</item>
+    </array>
+
+    <string-array name="product_prices">
+        <item>2000</item>
+        <item>350</item>
+        <item>750</item>
+        <item>4500</item>
+        <item>999</item>
+        <item>2500</item>
+        <item>2499</item>
+        <item>100</item>
     </string-array>
 </resources>
