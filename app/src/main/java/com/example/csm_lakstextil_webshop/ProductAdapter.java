@@ -1,6 +1,7 @@
 package com.example.csm_lakstextil_webshop;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Rating;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> implements Filterable {
+    private static final int SECRET_KEY = 57;
     private int lP = -1;
     private Context mContext;
     private ArrayList<Product> mProductListAll;
@@ -61,8 +63,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         this.mProductListAll = productsList;
         this.mProductList = productsList;
     }
-
-
 
     @NonNull
     @Override
@@ -110,15 +110,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             mProdRating = itemView.findViewById(R.id.productRatingBar);
             mProdDescText = itemView.findViewById(R.id.productDescription);
             mProdPriceText = itemView.findViewById(R.id.productPrice);
-
-            itemView.findViewById(R.id.productAddToCart).setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View view) {
-                    Log.d("A", "Added to cart.");
-                    ((ProductsActivity)mContext).UpdateIcon();
-                }
-            });
         }
 
         public void bindTo(Product currentProduct) {
@@ -127,6 +118,34 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             mProdRating.setRating(currentProduct.getProductRating());
             mProdDescText.setText(currentProduct.getProductDesc());
             mProdPriceText.setText(currentProduct.getProductPrice());
+
+            itemView.findViewById(R.id.productAddToCart).setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    Log.d("A", "Added to cart.");
+                    ((ProductsActivity)mContext).UpdateIcon(currentProduct);
+                }
+            });
+
+            itemView.findViewById(R.id.productDelete).setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    Log.d("A", "Deleted.");
+                    ((ProductsActivity)mContext).DeleteData(currentProduct);
+                }
+            });
+
+            itemView.findViewById(R.id.productUpdate).setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    Log.d("A", "Update.");
+                    ((ProductsActivity)mContext).UpdateData(currentProduct);
+                }
+            });
+            
         }
     }
 }

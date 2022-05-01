@@ -54,9 +54,9 @@ public class RegActivity extends AppCompatActivity implements AdapterView.OnItem
         }
 
         userNameET = findViewById(R.id.usernameEditText);
-        passwordET = findViewById(R.id.passwordEditText);
-        passwordReET = findViewById(R.id.passwordConfirmEditText);
-        emailET = findViewById(R.id.emailEditText);
+        passwordET = findViewById(R.id.productImageEditText);
+        passwordReET = findViewById(R.id.productDescEditText);
+        emailET = findViewById(R.id.productPriceEditText);
         phoneET = findViewById(R.id.phoneEditText);
         postaladdressET = findViewById(R.id.addressEditText);
 

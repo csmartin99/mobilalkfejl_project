@@ -32,7 +32,7 @@
         android:inputType="text"/>
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/productImageEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/usernameEditText"
@@ -46,10 +46,10 @@
         android:inputType="textPassword"/>
 
     <EditText
-        android:id="@+id/passwordConfirmEditText"
+        android:id="@+id/productDescEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordEditText"
+        android:layout_below="@+id/productImageEditText"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="@dimen/margin"
@@ -60,10 +60,10 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/emailEditText"
+        android:id="@+id/productPriceEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordConfirmEditText"
+        android:layout_below="@+id/productDescEditText"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="@dimen/margin"
@@ -77,7 +77,7 @@
         android:id="@+id/addressEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/emailEditText"
+        android:layout_below="@+id/productPriceEditText"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="@dimen/margin"

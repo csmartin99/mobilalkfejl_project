@@ -23,6 +23,15 @@
     <string name="change_view">Change view</string>
     <string name="cart">Cart</string>
     <string name="sign_out">Sign out</string>
+    <string name="remove">Remove</string>
+    <string name="delete">Delete</string>
+    <string name="add_product">Add product</string>
+    <string name="image">Image</string>
+    <string name="price">Price</string>
+    <string name="most_carted_products">Most carted products</string>
+    <string name="worst_products">Worst products</string>
+    <string name="update">Update</string>
+    <string name="update_product">Update product</string>
     <string-array name="phoneNumber">
         <item>Mobile</item>
         <item>Home</item>
