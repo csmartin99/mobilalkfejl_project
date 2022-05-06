@@ -20,7 +20,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+import java.util.ArrayList;
+
+//Firebase autentikáció meg van valósítva: Be lehet jelentkezni és regisztrálni
+//Legalább 3 különböző activity használata
 public class RegActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private static final String LOG_TAG = RegActivity.class.getName();
     private static final String PREF = RegActivity.class.getPackage().toString();
@@ -28,6 +37,9 @@ public class RegActivity extends AppCompatActivity implements AdapterView.OnItem
 
     private SharedPreferences pref;
     private FirebaseAuth mAuth;
+    private CollectionReference mAccount;
+    private FirebaseFirestore mFirestore;
+    FirebaseUser user;
 
     EditText userNameET;
     EditText passwordET;
@@ -80,13 +92,19 @@ public class RegActivity extends AppCompatActivity implements AdapterView.OnItem
         phoneAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         phoneSpinner.setAdapter(phoneAdapter);
 
-        Log.i(LOG_TAG, "onCreate");
+        mFirestore = FirebaseFirestore.getInstance();
+        mAccount = mFirestore.collection("user");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(LOG_TAG, "onStart");
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            currentUser.reload();
+        }
     }
 
     @Override
@@ -134,13 +152,14 @@ public class RegActivity extends AppCompatActivity implements AdapterView.OnItem
         if (!password.equals(passwordRe)) {
             Log.e(LOG_TAG, "Passwords do NOT match!");
         } else {
-            Log.i(LOG_TAG, "Registered as: " + userName + ", pw: " + password + ", email: " + email);
+            //Log.i(LOG_TAG, "Registered as: " + userName + ", pw: " + password + ", email: " + email);
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
-                        Log.d(LOG_TAG, "Account created sucessfully.");
+                        user = mAuth.getCurrentUser();
                         goToProducts();
+                        finish();
                     }
                     else{
                         Log.d(LOG_TAG, "Account failed to create.");

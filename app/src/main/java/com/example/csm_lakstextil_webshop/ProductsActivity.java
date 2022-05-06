@@ -1,15 +1,23 @@
 package com.example.csm_lakstextil_webshop;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Parcelable;
+import android.os.Build;
+import android.os.SystemClock;
 import android.widget.SearchView;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -31,10 +39,11 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 
+//Legalább 3 különböző activity használata
 public class ProductsActivity extends AppCompatActivity {
     private static final String LOG_TAG = ProductsActivity.class.getName();
     private static final int SECRET_KEY = 57;
-    private FirebaseUser account;
+    private FirebaseUser user;
 
     private ArrayList<Product> mProductList;
     private RecyclerView mRecyclerView;
@@ -47,14 +56,19 @@ public class ProductsActivity extends AppCompatActivity {
     private FirebaseFirestore mFirestore;
     private CollectionReference mProducts;
     private int productsQueryLimit = 6;
+    private NotificationHandler mNotiHandler;
+    private JobScheduler mJobSch;
+    private AlarmManager mBoradMan;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @SuppressLint("ServiceCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
 
-        account = FirebaseAuth.getInstance().getCurrentUser();
-        if(account != null)
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null)
         {
             Log.d(LOG_TAG, "Successfull auth process.");
         } else {
@@ -71,6 +85,11 @@ public class ProductsActivity extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
         mProducts = mFirestore.collection("products");
         QueryData();
+        mNotiHandler = new NotificationHandler(this);
+        mJobSch = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        mBoradMan = (AlarmManager) getSystemService(ALARM_SERVICE);
+        //setBroadReceiver();
+        JobScheduler();
 
         IntentFilter fltr = new IntentFilter();
         fltr.addAction(Intent.ACTION_BATTERY_OKAY);
@@ -95,6 +114,7 @@ public class ProductsActivity extends AppCompatActivity {
         }
     };
 
+    //CRUD műveletek mindegyike megvalósult és műveletek
     private void QueryData() {
         mProductList.clear();
         mProducts.orderBy("productRating", Query.Direction.DESCENDING).limit(productsQueryLimit).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -112,12 +132,14 @@ public class ProductsActivity extends AppCompatActivity {
     }
 
     public void UpdateData(Product product) {
+        //Intentek használata: navigáció meg van valósítva az activityk között (minden activity elérhető)
         Intent updateIntent = new Intent(this, UpdateActivity.class);
         updateIntent.putExtra("PRODUCT", product._getproductId());
         startActivity(updateIntent);
         //finish();
     }
 
+    //CRUD műveletek mindegyike megvalósult és műveletek
     public void DeleteData(Product product) {
         DocumentReference reference = mProducts.document(product._getproductId());
         reference.delete().addOnSuccessListener(success -> {
@@ -143,6 +165,7 @@ public class ProductsActivity extends AppCompatActivity {
         productImg.recycle();
     }
 
+    //Legalább 2 komplex Firestore lekérdezés megvalósítása, amely indexet igényel (ide tartoznak: where feltétel, rendezés, léptetés, limitálás)
     private void MostCartedProducts() {
         mProductList.clear();
         mProducts.whereGreaterThan("productCart", 5).orderBy("productCart", Query.Direction.DESCENDING).limit(5).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -155,6 +178,7 @@ public class ProductsActivity extends AppCompatActivity {
         });
     }
 
+    //Legalább 2 komplex Firestore lekérdezés megvalósítása, amely indexet igényel (ide tartoznak: where feltétel, rendezés, léptetés, limitálás)
     private void WorstRatedProducts() {
         mProductList.clear();
         mProducts.whereLessThan("productRating", 3).orderBy("productRating").limit(3).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -208,17 +232,28 @@ public class ProductsActivity extends AppCompatActivity {
                 return true;
             case R.id.signout:
                 FirebaseAuth.getInstance().signOut();
+                mNotiHandler.sendNoti("See you soon!", "Check out our new collection every Monday!");
                 finish();
                 return true;
             case R.id.add:
+                //Intentek használata: navigáció meg van valósítva az activityk között (minden activity elérhető)
                 Intent addIntent = new Intent(this, AddActivity.class);
                 startActivity(addIntent);
                 return true;
             case R.id.mostcartedproducts:
                 MostCartedProducts();
+                mNotiHandler.cancelNoti();
+                mNotiHandler.sendNoti("Choose from our best ones!","We sold most of these home textiles.");
                 return true;
             case R.id.worstrated:
                 WorstRatedProducts();
+                mNotiHandler.cancelNoti();
+                mNotiHandler.sendNoti("Missclick?","There are our worst products. Why would you buy these?");
+                return true;
+            case R.id.allproducts:
+                QueryData();
+                mNotiHandler.cancelNoti();
+                mNotiHandler.sendNoti("The full list.","This is all we have for you.");
                 return true;
             default:
                 return super.onOptionsItemSelected(product);
@@ -262,12 +297,31 @@ public class ProductsActivity extends AppCompatActivity {
         QueryData();
     }
 
+    private void setBroadReceiver(){
+        Intent broadIntent = new Intent(this, BroadReceiver.class);
+        PendingIntent broadPendingIntent = PendingIntent.getBroadcast(this, 0, broadIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        mBoradMan.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_HALF_HOUR,
+                AlarmManager.INTERVAL_HALF_HOUR, broadPendingIntent);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void JobScheduler() {
+        ComponentName componentName = new ComponentName(getPackageName(), NotiJobService.class.getName());
+
+        JobInfo.Builder jobBuilder = new JobInfo.Builder(0, componentName).setRequiresDeviceIdle(true).setOverrideDeadline(100000);
+        mJobSch.schedule(jobBuilder.build());
+    }
+
+    //Legalább egy Lifecycle Hook használata a teljes projektben
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        //mNotiHandler.cancelNoti();
         unregisterReceiver(batteryReceiver);
     }
 
+    //Legalább egy Lifecycle Hook használata a teljes projektben
     protected void onStart() {
         super.onStart();
         QueryData();

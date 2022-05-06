@@ -1,27 +1,19 @@
 package com.example.csm_lakstextil_webshop;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
-
+//Legalább 3 különböző activity használata
 public class AddActivity extends AppCompatActivity {
     private static final String LOG_TAG = AddActivity.class.getName();
     EditText productImgET;
@@ -30,15 +22,15 @@ public class AddActivity extends AppCompatActivity {
     EditText productPriceET;
     private FirebaseFirestore mFirestore;
     private CollectionReference mProducts;
-    private FirebaseUser account;
+    private FirebaseUser user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        account = FirebaseAuth.getInstance().getCurrentUser();
-        if(account != null)
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null)
         {
             Log.d(LOG_TAG, "Successfull auth process.");
         } else {
@@ -54,6 +46,7 @@ public class AddActivity extends AppCompatActivity {
         mProducts = mFirestore.collection("products");
     }
 
+    //CRUD műveletek mindegyike megvalósult és műveletek
     public void CreateData(View view) {
         String productImg = productImgET.getText().toString();
         String productName = productNameET.getText().toString();

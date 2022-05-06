@@ -1,5 +1,6 @@
 package com.example.csm_lakstextil_webshop;
 
+//Adatmodell definiálása (class vagy interfész formájában)
 public class Product {
     private String productId;
     private int productImg;

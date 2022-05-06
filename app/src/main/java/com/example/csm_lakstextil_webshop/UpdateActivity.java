@@ -1,7 +1,6 @@
 package com.example.csm_lakstextil_webshop;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,8 +15,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
-
 public class UpdateActivity extends AppCompatActivity {
     private static final String LOG_TAG = UpdateActivity.class.getName();
     private Context mContext;
@@ -28,15 +25,15 @@ public class UpdateActivity extends AppCompatActivity {
     EditText productPriceET;
     private FirebaseFirestore mFirestore;
     private CollectionReference mProducts;
-    private FirebaseUser account;
+    private FirebaseUser user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        account = FirebaseAuth.getInstance().getCurrentUser();
-        if(account != null)
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null)
         {
             Log.d(LOG_TAG, "Successfull auth process.");
         } else {
@@ -53,6 +50,7 @@ public class UpdateActivity extends AppCompatActivity {
         productId = (String) getIntent().getSerializableExtra("PRODUCT");
     }
 
+    //CRUD műveletek mindegyike megvalósult és műveletek
     public void updateData(View view) {
         String productImg = productImgET.getText().toString();
         String productName = productNameET.getText().toString();

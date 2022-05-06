@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Beviteli mezők beviteli típusa megfelelő (jelszó kicsillagozva,
+ email-nél megfelelő billentyűzet jelenik meg stb.)-->
+<!--ConstraintLayout és még egy másik layout típus használata-->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

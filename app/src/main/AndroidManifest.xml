@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.csm_lakstextil_webshop">
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
+        tools:ignore="ProtectedPermissions" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CSM_Lakástextil_webshop">
+        <receiver
+            android:name=".BroadReceiver"
+            android:enabled="true"
+            android:exported="false"></receiver>
+        <service android:name=".NotiJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
         <activity
             android:name=".ProductsActivity"
             android:exported="false" />
