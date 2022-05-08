@@ -149,8 +149,13 @@ public class RegActivity extends AppCompatActivity implements AdapterView.OnItem
         RadioButton userRadioBtn = userRG.findViewById(userChecked);
         String userType = userRadioBtn.getText().toString();
 
+        if(password.length()<6) {
+            Log.e(LOG_TAG, "Password is too short! (Min 6)");
+            Toast.makeText(RegActivity.this, "Password is too short! (Min 6)", Toast.LENGTH_SHORT).show();
+        }
         if (!password.equals(passwordRe)) {
             Log.e(LOG_TAG, "Passwords do NOT match!");
+            Toast.makeText(RegActivity.this, "Passwords do NOT match!", Toast.LENGTH_SHORT).show();
         } else {
             //Log.i(LOG_TAG, "Registered as: " + userName + ", pw: " + password + ", email: " + email);
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

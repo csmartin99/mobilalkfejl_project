@@ -17,10 +17,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
-import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.SystemClock;
-import android.view.OrientationEventListener;
 import android.widget.SearchView;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -246,6 +244,7 @@ public class ProductsActivity extends AppCompatActivity {
                 return true;
             case R.id.mostcartedproducts:
                 MostCartedProducts();
+                Toast.makeText(ProductsActivity.this, "A product have to be carted atleast 6 times.", Toast.LENGTH_SHORT).show();
                 mNotiHandler.cancelNoti();
                 mNotiHandler.sendNoti("Choose from our best ones!","We sold most of these home textiles.");
                 return true;
