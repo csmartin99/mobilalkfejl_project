@@ -32,6 +32,7 @@
     <string name="worst_products">Worst products</string>
     <string name="update">Update</string>
     <string name="update_product">Update product</string>
+    <string name="image_name_example">Image name (example: towel):</string>
     <string-array name="phoneNumber">
         <item>Mobile</item>
         <item>Home</item>

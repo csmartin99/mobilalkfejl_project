@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -123,8 +124,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
                 @Override
                 public void onClick(View view) {
+                    //Legalább 2 különböző animáció használata
                     Log.d("A", "Added to cart.");
                     ((ProductsActivity)mContext).UpdateIcon(currentProduct);
+                    Animation anim = AnimationUtils.loadAnimation(mContext, R.anim.btnpress);
+                    itemView.findViewById(R.id.productAddToCart).startAnimation(anim);
                 }
             });
 

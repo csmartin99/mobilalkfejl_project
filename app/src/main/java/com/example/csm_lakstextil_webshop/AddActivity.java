@@ -52,8 +52,9 @@ public class AddActivity extends AppCompatActivity {
         String productName = productNameET.getText().toString();
         String productDesc = productDescET.getText().toString();
         String productPrice = productPriceET.getText().toString();
+        int drawableResource = getResources().getIdentifier(productImg, "drawable", getPackageName());
 
-        mProducts.add(new Product(2131230809, productName, 0, productDesc, productPrice, 0)).addOnSuccessListener(success -> {
+        mProducts.add(new Product(drawableResource, productName, 0, productDesc, productPrice, 0)).addOnSuccessListener(success -> {
             Toast.makeText(this, "Product added", Toast.LENGTH_LONG).show();
             Log.d(LOG_TAG, "Product added");
         }).addOnFailureListener(failure -> {

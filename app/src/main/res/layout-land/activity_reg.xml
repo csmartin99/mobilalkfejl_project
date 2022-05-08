@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Beviteli mezők beviteli típusa megfelelő (jelszó kicsillagozva,
+ email-nél megfelelő billentyűzet jelenik meg stb.)-->
+<!--ConstraintLayout és még egy másik layout típus használata-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegActivity">
+
+    <TextView
+        android:id="@+id/regTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:ems="5"
+        android:hint="@string/username"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/productImageEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_toEndOf="@+id/usernameEditText"
+        android:ems="5"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/productDescEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_toEndOf="@+id/productImageEditText"
+        android:ems="5"
+        android:hint="@string/password_again"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/productPriceEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_toEndOf="@+id/productDescEditText"
+        android:ems="5"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regTextView"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_toEndOf="@+id/productPriceEditText"
+        android:ems="5"
+        android:hint="@string/postal_address"
+        android:inputType="textMultiLine|textPostalAddress"
+        android:maxLines="4" />
+
+    <EditText
+        android:id="@+id/phoneEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usernameEditText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="@dimen/margin"
+        android:ems="5"
+        android:hint="@string/phone_number"
+        android:inputType="phone" />
+
+    <Spinner
+        android:id="@+id/phoneNumberSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productDescEditText"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_toEndOf="@+id/phoneEditText" />
+
+    <RadioGroup
+        android:id="@+id/userRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productPriceEditText"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_toEndOf="@+id/phoneNumberSpinner"><![CDATA[
+
+        />
+
+
+
+        ]]>
+
+        <RadioButton
+            android:id="@+id/userRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user" />
+
+        <RadioButton
+            android:id="@+id/adminRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/admin" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productDescEditText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="50dp"
+        android:layout_toEndOf="@+id/userRadioGroup"
+        android:onClick="register"
+        android:text="@string/register" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productPriceEditText"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="600dp"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="20dp"
+        android:layout_toEndOf="@+id/reg"
+        android:onClick="back"
+        android:text="@string/back"
+        tools:layout_marginRight="@dimen/margin" />
+</RelativeLayout>

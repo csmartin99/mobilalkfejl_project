@@ -16,8 +16,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Configuration;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.SystemClock;
+import android.view.OrientationEventListener;
 import android.widget.SearchView;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -50,12 +53,12 @@ public class ProductsActivity extends AppCompatActivity {
     private ProductAdapter mAdapter;
     private int gridNum = 1;
     private int cartI = 0;
-    private boolean viewStyle = true;
+    private int viewStyle = 1;
     private FrameLayout notiCircle;
     private TextView contentTextView;
     private FirebaseFirestore mFirestore;
     private CollectionReference mProducts;
-    private int productsQueryLimit = 6;
+    private int productsQueryLimit = 25;
     private NotificationHandler mNotiHandler;
     private JobScheduler mJobSch;
     private AlarmManager mBoradMan;
@@ -84,7 +87,6 @@ public class ProductsActivity extends AppCompatActivity {
 
         mFirestore = FirebaseFirestore.getInstance();
         mProducts = mFirestore.collection("products");
-        QueryData();
         mNotiHandler = new NotificationHandler(this);
         mJobSch = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
         mBoradMan = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -222,10 +224,12 @@ public class ProductsActivity extends AppCompatActivity {
             case R.id.search:
                 return true;
             case R.id.view:
-                if (viewStyle) {
-                    changeSpanCount(product, R.drawable.view, 1);
-                } else {
-                    changeSpanCount(product, R.drawable.view2, 2);
+                if (viewStyle == 1) {
+                    changeSpanCount(product, R.drawable.view, 2);
+                    viewStyle = 2;
+                } else if (viewStyle == 2){
+                    changeSpanCount(product, R.drawable.view2, 1);
+                    viewStyle = 1;
                 }
                 return true;
             case R.id.settings:
@@ -261,7 +265,6 @@ public class ProductsActivity extends AppCompatActivity {
     }
 
     private void changeSpanCount(MenuItem product, int view2, int i) {
-        viewStyle = !viewStyle;
         product.setIcon(view2);
         GridLayoutManager lM = (GridLayoutManager) mRecyclerView.getLayoutManager();
         lM.setSpanCount(i);
@@ -313,6 +316,11 @@ public class ProductsActivity extends AppCompatActivity {
         mJobSch.schedule(jobBuilder.build());
     }
 
+    public boolean isInLandscape() {
+        int orientation = getResources().getConfiguration().orientation;
+        return orientation == Configuration.ORIENTATION_LANDSCAPE;
+    }
+
     //Legalább egy Lifecycle Hook használata a teljes projektben
     @Override
     protected void onDestroy() {
@@ -324,6 +332,16 @@ public class ProductsActivity extends AppCompatActivity {
     //Legalább egy Lifecycle Hook használata a teljes projektben
     protected void onStart() {
         super.onStart();
+        boolean isInLandscape = isInLandscape();
+        if (isInLandscape) {
+            GridLayoutManager lM = (GridLayoutManager) mRecyclerView.getLayoutManager();
+            lM.setSpanCount(2);
+        }
+        boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+        if (tabletSize) {
+            GridLayoutManager lM = (GridLayoutManager) mRecyclerView.getLayoutManager();
+            lM.setSpanCount(4);
+        }
         QueryData();
     }
 }

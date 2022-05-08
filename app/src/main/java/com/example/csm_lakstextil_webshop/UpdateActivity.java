@@ -1,6 +1,7 @@
 package com.example.csm_lakstextil_webshop;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,9 +57,11 @@ public class UpdateActivity extends AppCompatActivity {
         String productName = productNameET.getText().toString();
         String productDesc = productDescET.getText().toString();
         String productPrice = productPriceET.getText().toString();
+        int drawableResource = getResources().getIdentifier(productImg, "drawable", getPackageName());
+        //Drawable productImage = mContext.getResources().getDrawable(R.drawable.donut);
 
         DocumentReference reference = mProducts.document(productId);
-        reference.update("productImg", 2131230809, "productName", productName, "productDesc", productDesc, "productPrice", productPrice).addOnSuccessListener(success -> {
+        reference.update("productImg", drawableResource, "productName", productName, "productDesc", productDesc, "productPrice", productPrice).addOnSuccessListener(success -> {
             Toast.makeText(this, "Product updated: " + productId, Toast.LENGTH_LONG).show();
             Log.d(LOG_TAG, "Product updated: " + productId);
         }).addOnFailureListener(failure -> {
