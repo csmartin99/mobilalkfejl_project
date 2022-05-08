@@ -1,0 +1,242 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.csm_lakstextil_webshop"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:5:5-6:47
+11-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->[com.google.firebase:firebase-firestore:24.1.1] C:\Users\csajb\.gradle\caches\transforms-3\643bb2969e04c54af4ffc6b67f95f544\transformed\firebase-firestore-24.1.1\AndroidManifest.xml:14:5-67
+12-->[com.google.firebase:firebase-firestore:24.1.1] C:\Users\csajb\.gradle\caches\transforms-3\643bb2969e04c54af4ffc6b67f95f544\transformed\firebase-firestore-24.1.1\AndroidManifest.xml:14:22-64
+13
+14    <application
+14-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:7:5-41:19
+15        android:allowBackup="true"
+15-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:8:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.5.0] C:\Users\csajb\.gradle\caches\transforms-3\841429d3848eff64d1faeca4c3bb3b99\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:icon="@mipmap/ic_launcher"
+18-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:9:9-43
+19        android:label="@string/app_name"
+19-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:10:9-41
+20        android:roundIcon="@mipmap/ic_launcher_round"
+20-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:11:9-54
+21        android:supportsRtl="true"
+21-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:12:9-35
+22        android:theme="@style/Theme.CSM_Lakástextil_webshop" >
+22-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:13:9-61
+23        <receiver
+23-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:14:9-17:49
+24            android:name="com.example.csm_lakstextil_webshop.BroadReceiver"
+24-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:15:13-42
+25            android:enabled="true"
+25-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:16:13-35
+26            android:exported="false" />
+26-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:17:13-37
+27
+28        <service
+28-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:18:9-19:71
+29            android:name="com.example.csm_lakstextil_webshop.NotiJobService"
+29-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:18:18-48
+30            android:permission="android.permission.BIND_JOB_SERVICE" />
+30-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:19:13-69
+31
+32        <activity
+32-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:20:9-22:40
+33            android:name="com.example.csm_lakstextil_webshop.ProductsActivity"
+33-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:21:13-45
+34            android:exported="false" />
+34-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:22:13-37
+35        <activity
+35-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:23:9-25:40
+36            android:name="com.example.csm_lakstextil_webshop.RegActivity"
+36-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:24:13-40
+37            android:exported="false" />
+37-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:25:13-37
+38        <activity
+38-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:26:9-28:40
+39            android:name="com.example.csm_lakstextil_webshop.AddActivity"
+39-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:27:13-40
+40            android:exported="false" />
+40-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:28:13-37
+41        <activity
+41-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:29:9-31:40
+42            android:name="com.example.csm_lakstextil_webshop.UpdateActivity"
+42-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:30:13-43
+43            android:exported="false" />
+43-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:31:13-37
+44        <activity
+44-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:32:9-40:20
+45            android:name="com.example.csm_lakstextil_webshop.MainActivity"
+45-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:33:13-41
+46            android:exported="true" >
+46-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:34:13-36
+47            <intent-filter>
+47-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:35:13-39:29
+48                <action android:name="android.intent.action.MAIN" />
+48-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:36:17-69
+48-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:36:25-66
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:38:17-77
+50-->C:\Mobilalkfejl_project\app\src\main\AndroidManifest.xml:38:27-74
+51            </intent-filter>
+52        </activity>
+53
+54        <service
+54-->[com.google.firebase:firebase-firestore:24.1.1] C:\Users\csajb\.gradle\caches\transforms-3\643bb2969e04c54af4ffc6b67f95f544\transformed\firebase-firestore-24.1.1\AndroidManifest.xml:17:9-23:19
+55            android:name="com.google.firebase.components.ComponentDiscoveryService"
+55-->[com.google.firebase:firebase-firestore:24.1.1] C:\Users\csajb\.gradle\caches\transforms-3\643bb2969e04c54af4ffc6b67f95f544\transformed\firebase-firestore-24.1.1\AndroidManifest.xml:18:13-84
+56            android:directBootAware="true"
+56-->[com.google.firebase:firebase-common:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\3d3046c03e2c58ca4fecb9a85cbcc3a4\transformed\firebase-common-20.1.0\AndroidManifest.xml:35:13-43
+57            android:exported="false" >
+57-->[com.google.firebase:firebase-firestore:24.1.1] C:\Users\csajb\.gradle\caches\transforms-3\643bb2969e04c54af4ffc6b67f95f544\transformed\firebase-firestore-24.1.1\AndroidManifest.xml:19:13-37
+58            <meta-data
+58-->[com.google.firebase:firebase-firestore:24.1.1] C:\Users\csajb\.gradle\caches\transforms-3\643bb2969e04c54af4ffc6b67f95f544\transformed\firebase-firestore-24.1.1\AndroidManifest.xml:20:13-22:85
+59                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+59-->[com.google.firebase:firebase-firestore:24.1.1] C:\Users\csajb\.gradle\caches\transforms-3\643bb2969e04c54af4ffc6b67f95f544\transformed\firebase-firestore-24.1.1\AndroidManifest.xml:21:17-111
+60                android:value="com.google.firebase.components.ComponentRegistrar" />
+60-->[com.google.firebase:firebase-firestore:24.1.1] C:\Users\csajb\.gradle\caches\transforms-3\643bb2969e04c54af4ffc6b67f95f544\transformed\firebase-firestore-24.1.1\AndroidManifest.xml:22:17-82
+61            <meta-data
+61-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:67:13-69:85
+62                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+62-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:68:17-109
+63                android:value="com.google.firebase.components.ComponentRegistrar" />
+63-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:69:17-82
+64        </service>
+65
+66        <activity
+66-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:27:9-44:20
+67            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+67-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:28:13-80
+68            android:excludeFromRecents="true"
+68-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:29:13-46
+69            android:exported="true"
+69-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:30:13-36
+70            android:launchMode="singleTask"
+70-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:31:13-44
+71            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+71-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:32:13-72
+72            <intent-filter>
+72-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:33:13-43:29
+73                <action android:name="android.intent.action.VIEW" />
+73-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:34:17-69
+73-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:34:25-66
+74
+75                <category android:name="android.intent.category.DEFAULT" />
+75-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:36:17-76
+75-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:36:27-73
+76                <category android:name="android.intent.category.BROWSABLE" />
+76-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:37:17-78
+76-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:37:27-75
+77
+78                <data
+78-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:39:17-42:51
+79                    android:host="firebase.auth"
+79-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:40:21-49
+80                    android:path="/"
+80-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:41:21-37
+81                    android:scheme="genericidp" />
+81-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:42:21-48
+82            </intent-filter>
+83        </activity>
+84        <activity
+84-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:45:9-62:20
+85            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+85-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:46:13-79
+86            android:excludeFromRecents="true"
+86-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:47:13-46
+87            android:exported="true"
+87-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:48:13-36
+88            android:launchMode="singleTask"
+88-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:49:13-44
+89            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+89-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:50:13-72
+90            <intent-filter>
+90-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:51:13-61:29
+91                <action android:name="android.intent.action.VIEW" />
+91-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:34:17-69
+91-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:34:25-66
+92
+93                <category android:name="android.intent.category.DEFAULT" />
+93-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:36:17-76
+93-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:36:27-73
+94                <category android:name="android.intent.category.BROWSABLE" />
+94-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:37:17-78
+94-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:37:27-75
+95
+96                <data
+96-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:39:17-42:51
+97                    android:host="firebase.auth"
+97-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:40:21-49
+98                    android:path="/"
+98-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:41:21-37
+99                    android:scheme="recaptcha" />
+99-->[com.google.firebase:firebase-auth:21.0.3] C:\Users\csajb\.gradle\caches\transforms-3\d7d1c36225808f6cc525ee9064daafb1\transformed\firebase-auth-21.0.3\AndroidManifest.xml:42:21-48
+100            </intent-filter>
+101        </activity>
+102        <activity
+102-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:23:9-27:75
+103            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+103-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:24:13-93
+104            android:excludeFromRecents="true"
+104-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:25:13-46
+105            android:exported="false"
+105-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:26:13-37
+106            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+106-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:27:13-72
+107        <!--
+108            Service handling Google Sign-In user revocation. For apps that do not integrate with
+109            Google Sign-In, this service will never be started.
+110        -->
+111        <service
+111-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:33:9-37:51
+112            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+112-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:34:13-89
+113            android:exported="true"
+113-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:35:13-36
+114            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+114-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:36:13-107
+115            android:visibleToInstantApps="true" />
+115-->[com.google.android.gms:play-services-auth:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\1108b63f1131eb4bae36aa23becf7ee7\transformed\play-services-auth-20.1.0\AndroidManifest.xml:37:13-48
+116
+117        <provider
+117-->[com.google.firebase:firebase-common:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\3d3046c03e2c58ca4fecb9a85cbcc3a4\transformed\firebase-common-20.1.0\AndroidManifest.xml:26:9-31:39
+118            android:name="com.google.firebase.provider.FirebaseInitProvider"
+118-->[com.google.firebase:firebase-common:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\3d3046c03e2c58ca4fecb9a85cbcc3a4\transformed\firebase-common-20.1.0\AndroidManifest.xml:27:13-77
+119            android:authorities="com.example.csm_lakstextil_webshop.firebaseinitprovider"
+119-->[com.google.firebase:firebase-common:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\3d3046c03e2c58ca4fecb9a85cbcc3a4\transformed\firebase-common-20.1.0\AndroidManifest.xml:28:13-72
+120            android:directBootAware="true"
+120-->[com.google.firebase:firebase-common:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\3d3046c03e2c58ca4fecb9a85cbcc3a4\transformed\firebase-common-20.1.0\AndroidManifest.xml:29:13-43
+121            android:exported="false"
+121-->[com.google.firebase:firebase-common:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\3d3046c03e2c58ca4fecb9a85cbcc3a4\transformed\firebase-common-20.1.0\AndroidManifest.xml:30:13-37
+122            android:initOrder="100" />
+122-->[com.google.firebase:firebase-common:20.1.0] C:\Users\csajb\.gradle\caches\transforms-3\3d3046c03e2c58ca4fecb9a85cbcc3a4\transformed\firebase-common-20.1.0\AndroidManifest.xml:31:13-36
+123
+124        <activity
+124-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\csajb\.gradle\caches\transforms-3\13817dd7ba3be49b3c4499da839bb44c\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+125            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+125-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\csajb\.gradle\caches\transforms-3\13817dd7ba3be49b3c4499da839bb44c\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+126            android:exported="false"
+126-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\csajb\.gradle\caches\transforms-3\13817dd7ba3be49b3c4499da839bb44c\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+127            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+127-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\csajb\.gradle\caches\transforms-3\13817dd7ba3be49b3c4499da839bb44c\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+128
+129        <meta-data
+129-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\csajb\.gradle\caches\transforms-3\0535a9878a0bb96f02aebd3a395af8f1\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+130            android:name="com.google.android.gms.version"
+130-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\csajb\.gradle\caches\transforms-3\0535a9878a0bb96f02aebd3a395af8f1\transformed\play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+131            android:value="@integer/google_play_services_version" />
+131-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\csajb\.gradle\caches\transforms-3\0535a9878a0bb96f02aebd3a395af8f1\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+132    </application>
+133
+134</manifest>

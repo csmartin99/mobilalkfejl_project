@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <string-array name="phoneNumber">
+        <item>Mobile</item>
+        <item>Home</item>
+        <item>Work</item>
+    </string-array>
+    <string-array name="product_descs">
+        <item>Fancy towels...</item>
+        <item>To decorate you house...</item>
+        <item>If you got bored of your chair s texture...</item>
+        <item>In case you didn t take care of your couch...</item>
+        <item>For lazy people...</item>
+        <item>Cheap solution to block the sunlight...</item>
+        <item>Well it speaks for itself...</item>
+        <item>For cold morning s on the terrace...</item>
+    </string-array>
+    <array name="product_images">
+        <item>@drawable/towel</item>
+        <item>@drawable/curtain</item>
+        <item>@drawable/tiktok</item>
+        <item>@drawable/imitationleather</item>
+        <item>@drawable/bedspread</item>
+        <item>@drawable/blackoutcurtain</item>
+        <item>@drawable/donut</item>
+        <item>@drawable/gardenseatcushion</item>
+    </array>
+    <string-array name="product_names">
+        <item>Towel</item>
+        <item>Curtain</item>
+        <item>Bedding cover</item>
+        <item>Imitation leather</item>
+        <item>Bedspread</item>
+        <item>Blackout curtains</item>
+        <item>Decorative pillow</item>
+        <item>Garden seat cushion</item>
+    </string-array>
+    <string-array name="product_prices">
+        <item>2000</item>
+        <item>350</item>
+        <item>750</item>
+        <item>4500</item>
+        <item>999</item>
+        <item>2500</item>
+        <item>2499</item>
+        <item>100</item>
+    </string-array>
+    <array name="product_ratings">
+        <item>3</item>
+        <item>4.5</item>
+        <item>3</item>
+        <item>1</item>
+        <item>5</item>
+        <item>4</item>
+        <item>2.5</item>
+        <item>3</item>
+    </array>
+    <bool name="isTablet">false</bool>
+    <color name="black">#FF000000</color>
+    <color name="cream_1">#DDC260</color>
+    <color name="cream_2">#A69246</color>
+    <color name="orange">#e07800</color>
+    <color name="orange_1">#ed802b</color>
+    <color name="orange_2">#b3662b</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="margin">15dp</dimen>
+    <string name="add_product">Add product</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="admin">Admin</string>
+    <string name="app_name">CSM_Lakástextil_webshop</string>
+    <string name="back">Back</string>
+    <string name="cart">Cart</string>
+    <string name="change_view">Change view</string>
+    <string name="default_price">000</string>
+    <string name="default_web_client_id" translatable="false">138588909047-glr4rcc9ot2tjlndf9cfkf0k2b7gdr8j.apps.googleusercontent.com</string>
+    <string name="default_web_client_id_copy" translatable="false">138588909047-glr4rcc9ot2tjlndf9cfkf0k2b7gdr8j.apps.googleusercontent.com</string>
+    <string name="delete">Delete</string>
+    <string name="description">Description</string>
+    <string name="email">Email</string>
+    <string name="gcm_defaultSenderId" translatable="false">138588909047</string>
+    <string name="google_api_key" translatable="false">AIzaSyDWeMzie5uY8HzbIU3pTqVj-v8XZopkkPU</string>
+    <string name="google_app_id" translatable="false">1:138588909047:android:0cb0550e3b2ceac2ca92f2</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDWeMzie5uY8HzbIU3pTqVj-v8XZopkkPU</string>
+    <string name="google_storage_bucket" translatable="false">lakastextilwebshop.appspot.com</string>
+    <string name="image">Image</string>
+    <string name="image_name_example">Image name (example: towel):</string>
+    <string name="login">Login</string>
+    <string name="login_as_guest">Login as Guest</string>
+    <string name="login_with_google_account">Login with google account</string>
+    <string name="most_carted_products">Most carted products</string>
+    <string name="password">Password</string>
+    <string name="password_again">Password again</string>
+    <string name="phone_number">Phone number</string>
+    <string name="postal_address">Postal address</string>
+    <string name="price">Price</string>
+    <string name="product_name">Product name</string>
+    <string name="project_id" translatable="false">lakastextilwebshop</string>
+    <string name="register">Register</string>
+    <string name="remove">Remove</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="sign_out">Sign out</string>
+    <string name="update">Update</string>
+    <string name="update_product">Update product</string>
+    <string name="user">User</string>
+    <string name="username">Username</string>
+    <string name="worst_products">Worst products</string>
+    <style name="Theme.CSM_Lakástextil_webshop" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/orange_1</item>
+        <item name="colorPrimaryVariant">@color/orange_2</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/cream_1</item>
+        <item name="colorSecondaryVariant">@color/cream_2</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:scaleX="0.9"
+            android:scaleY="0.9" />
+
+        <TextView
+            android:id="@+id/productName"
+            android:text="@string/product_name"
+            android:textColor="?android:attr/textColorPrimary"
+            style="@android:style/Widget.Material.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productImage"
+            android:padding="8dp" />
+
+        <RatingBar
+            android:id="@+id/productRatingBar"
+            style="@android:style/Widget.Material.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productName"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:layout_marginStart="8dp"
+            android:progressTint="#FFC107" />
+
+        <TextView
+            android:id="@+id/productDescription"
+            android:text="@string/description"
+            style="@android:style/Widget.Material.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productRatingBar"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:text="@string/default_price"
+            android:textColor="@color/design_default_color_secondary"
+            style="@android:style/Widget.Material.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productDescription"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:padding="8dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/productPrice"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/productAddToCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/roundbtn"
+                android:contentDescription="@string/add_to_cart"
+                android:gravity="center"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="@drawable/add_cart" />
+
+            <ImageButton
+                android:id="@+id/productUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productAddToCart"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/roundbtn"
+                android:contentDescription="@string/update_product"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="@drawable/edit" />
+
+            <ImageButton
+                android:id="@+id/productDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productUpdate"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/roundbtn"
+                android:contentDescription="@string/delete"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="@drawable/delete" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

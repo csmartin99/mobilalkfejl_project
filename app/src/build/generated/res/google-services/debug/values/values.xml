@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">138588909047-glr4rcc9ot2tjlndf9cfkf0k2b7gdr8j.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">138588909047</string>
+    <string name="google_api_key" translatable="false">AIzaSyDWeMzie5uY8HzbIU3pTqVj-v8XZopkkPU</string>
+    <string name="google_app_id" translatable="false">1:138588909047:android:0cb0550e3b2ceac2ca92f2</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDWeMzie5uY8HzbIU3pTqVj-v8XZopkkPU</string>
+    <string name="google_storage_bucket" translatable="false">lakastextilwebshop.appspot.com</string>
+    <string name="project_id" translatable="false">lakastextilwebshop</string>
+</resources>
